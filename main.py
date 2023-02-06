@@ -23,7 +23,7 @@ language = ""
 
 
 def speak_kn(text):
-    '''This function renders the voice translated in Kannada'''
+    '''This function renders the voice in Kannada'''
     file_name ='audio_data.mp3'
     tts = gTTS(text=text, lang='kn')
     tts.save(file_name)
@@ -32,7 +32,7 @@ def speak_kn(text):
 
 
 def speak_de(text):
-    '''This function renders the voice translated in Deutsch(German)'''
+    '''This function renders the voice in Deutsch(German)'''
     file_name ='audio_data.mp3'
     tts = gTTS(text=text, lang='de')
     tts.save(file_name)
