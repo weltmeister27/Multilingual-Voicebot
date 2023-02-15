@@ -53,8 +53,6 @@ def select_language():
         speak_kn("ನೀವು ಕನ್ನಡವನ್ನು ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದೀರಿ")
     elif language.lower() == "german" or language.lower() == "deutsch":
         speak_de("Sie haben Deutsch gewählt")
-    elif language.lower() == "spanish" or language.lower() == "espanol":
-        speak_es("has seleccionado español")
     else:
         speak(f"You've chosen {language}")
     return language
@@ -120,18 +118,6 @@ def take_command(language):
             print(e)
             print("Unable to Recognize your voice.")
             return "None"
-    elif "german" in selected_language or "espanol" in selected_language:
-        try:
-            print("Recognizing...")
-            message = recognised_message.recognize_google(audio, language='es')
-            translator = Translator()
-            query = translator.translate(text=message, src='es', dest='en').text
-            print(query)
-            print(f"User said: {query}\n")
-        except Exception as e:
-            print(e)
-            print("Unable to Recognize your voice.")
-            return "None"
 
     return query
 
@@ -154,8 +140,6 @@ if __name__ == '__main__':
         speak_kn("ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ")
     elif language == "german":
         speak_de("Womit kann ich Ihnen behilflich sein")
-    elif language == "spanish":
-        speak_es("cómo puedo ayudarte")
     else:
         speak("How can I help you?")
 
@@ -175,10 +159,6 @@ if __name__ == '__main__':
                 message = translator.translate(text=results, src='en', dest='de').text
                 speak_de("Laut Wikipedia")
                 speak_de(message)
-            elif language == "spanish" or language == "espanol":
-                message = translator.translate(text=results, src='en', dest='es').text
-                speak_de("segun wikipedia")
-                speak_de(message)
             else:
                 speak("According to Wikipedia")
                 print(results)
@@ -189,8 +169,6 @@ if __name__ == '__main__':
                 speak_kn("ನಿಮ್ಮನ್ನು Youtube ಗೆ ಕರೆದೊಯ್ಯಲಾಗುತ್ತಿದೆ")
             elif language == "german" or language == "deutsch":
                 speak_de("hier gehts zu Youtube")
-            elif language == "spanish" or language == "espanol":
-                speak_de("Abriendo Youtube para ti")
             else:
                 speak("Here you go to Youtube\n")
             webbrowser.open("youtube.com")
